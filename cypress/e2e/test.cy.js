@@ -48,5 +48,16 @@ describe("Login test suite", function() {
 
         cy.get('[data-id = "users"]').click();
         cy.wait('@getData').its('response.body').should('have.length',2);
+
+
+        // POST API
+        cy.intercept("/api/users").as("postData");
+        cy.get('[data-id="post"]').click();
+        cy.wait('@postData').its('response.body').then((res)=>{
+            expect(res.name).to.eql('morpheus');
+        })
+
+        cy.wait('@postData').its('response.statusCode').should('equal', 200);
+        
     })
 })
