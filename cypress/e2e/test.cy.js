@@ -28,5 +28,25 @@ describe("Login test suite", function() {
         cy.intercept("/api/users?page=2").as("getData");
         cy.get('[data-id="users"]').click();
         cy.wait("@getData").its("response.body.data").should('have.length',6);
+    
+        // Mocking API
+        cy.intercept("/api/users?page=2", {
+            statusCode: 200,
+            body:[
+                {
+                    id: 1,
+                    name: 'Diwakar',
+                    email: 'diwakar@gmail.com'
+                },
+                {
+                    id: 2,
+                    name: 'Nimit',
+                    email: 'nimit@gmail.com'
+                }
+            ],
+        }).as('getData');
+
+        cy.get('[data-id = "users"]').click();
+        cy.wait('@getData').its('response.body').should('have.length',2);
     })
 })
