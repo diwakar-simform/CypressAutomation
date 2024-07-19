@@ -8,7 +8,7 @@ describe("Login test suite", function() {
     const password = "Diwakar@123";
     const name = "email";
 
-    it.only("Create user test case", function() {
+    it("Create user test case", function() {
         cy.visit("https://ecommerce-playground.lambdatest.io/index.php?route=account/register");
         loginPage.createUser("firstname", "Diwakar", "lastname", "Kumar", "email", "diwakar@gmail.com", "telephone", "1234567890", "password", "12345", "confirm", "12345", "input-agree");
         cy.get("input[value='Continue'").click();
@@ -20,5 +20,13 @@ describe("Login test suite", function() {
         // cy.visit("https://ecommerce-playground.lambdatest.io/index.php?route=account/login");
         loginPage.login(name,email,password);
         cy.get('#account-login > .alert').should('have.text', " Warning: No match for E-Mail Address and/or Password.");
+    })
+
+    it.only("intercept",function(){
+        cy.visit("https://reqres.in/");
+
+        cy.intercept("/api/users?page=2").as("getData");
+        cy.get('[data-id="users"]').click();
+        cy.wait("@getData").its("response.body.data").should('have.length',6);
     })
 })
