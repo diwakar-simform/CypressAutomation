@@ -1,0 +1,68 @@
+[
+  {
+    "description": "    Alerts handling using Cypress",
+    "elements": [
+      {
+        "description": "",
+        "id": "js-alerts;validate-alert-box-message",
+        "keyword": "Scenario",
+        "line": 6,
+        "name": "Validate Alert Box Message",
+        "steps": [
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 7,
+            "name": "I open javascript-alerts page",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 8702000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 8,
+            "name": "Locate the alert button and click on it",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 121000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 9,
+            "name": "Validate the text present inside the alert box",
+            "match": {
+              "location": "not available:0"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@Regression",
+            "line": 5
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "js-alerts",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "JS Alerts",
+    "tags": [],
+    "uri": "cypress\\integration\\BDD\\alert.feature"
+  }
+]

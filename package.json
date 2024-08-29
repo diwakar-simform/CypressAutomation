@@ -5,10 +5,22 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.1.2",
     "cypress": "^13.13.1"
+  },
+  "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "cypress-file-upload": "^5.0.8",
+    "multiple-cucumber-html-reporter": "^3.7.0"
   }
 }
